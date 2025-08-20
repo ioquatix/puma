@@ -34,8 +34,8 @@ module Puma
         with_unbundled_env do
           ENV['GEM_HOME'] = home
           ENV['BUNDLE_GEMFILE'] = bundle_gemfile
+          ENV['BUNDLE_APP_CONFIG'] = bundle_app_config
           ENV['PUMA_BUNDLER_PRUNED'] = '1'
-          ENV["BUNDLE_APP_CONFIG"] = bundle_app_config
           args = [Gem.ruby, puma_wild_path, '-I', dirs.join(':')] + @original_argv
           # Ruby 2.0+ defaults to true which breaks socket activation
           args += [{:close_others => false}]
