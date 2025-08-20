@@ -86,7 +86,7 @@ module TimeoutEveryTestCase
   end
 
   def run
-    with_info_handler do
+    super do
       time_it do
         capture_exceptions do
           ::Timeout.timeout($test_case_timeout, TestTookTooLong) do
